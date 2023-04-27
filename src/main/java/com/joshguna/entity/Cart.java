@@ -1,16 +1,18 @@
 package com.joshguna.entity;
 
 import com.joshguna.enums.CartState;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Entity;
+import lombok.Setter;
 
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 public class Cart extends BaseEntity {
 
@@ -22,5 +24,4 @@ public class Cart extends BaseEntity {
 
     @ManyToOne
     private Customer customer;
-
 }

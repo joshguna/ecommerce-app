@@ -1,16 +1,17 @@
 package com.joshguna.entity;
 
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
-public class Balance extends BaseEntity{
+public class Balance extends BaseEntity {
 
     private BigDecimal amount;
 

@@ -1,31 +1,26 @@
 package com.joshguna.entity;
 
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
-@Data
 @NoArgsConstructor
+@Getter
+@Setter
 public class Product extends BaseEntity {
 
     private String name;
-    private String price;
+    private BigDecimal price;
     private Integer quantity;
     private Integer remainingQuantity;
 
-    //Categories can have Many Products
-    //Product can have many Categories
-    //We put JoinTable under Product
-    //Because # of Products are higher than # of Categories
     @ManyToMany
-    @JoinTable(
-            name = "product_category_rel",
+    @JoinTable(name = "product_category_rel",
             joinColumns = @JoinColumn(name = "p_id"),
             inverseJoinColumns = @JoinColumn(name = "c_id"))
     private List<Category> categoryList;
